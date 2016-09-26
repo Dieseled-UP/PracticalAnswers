@@ -3,3 +3,4 @@
 .settings
 # External tool builders
 .externalToolBuilders/
+/bin/
