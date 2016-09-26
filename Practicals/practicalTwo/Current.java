@@ -9,7 +9,7 @@ public class Current {
 	// We will use composition to access the address and date objects
 	private Name name;
 	private Address address;
-	private static int accountNumber = 0;
+	private static int accountNumber = 1;
 	private double balance;
 	private Date dateOpened;
 	
