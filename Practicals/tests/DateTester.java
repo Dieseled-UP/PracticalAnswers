@@ -2,7 +2,7 @@ package tests;
 
 import java.util.ArrayList;
 
-import main.Date;
+import practicalOne.Date;
 
 public class DateTester {
 

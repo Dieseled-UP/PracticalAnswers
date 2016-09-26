@@ -1,4 +1,4 @@
-package main;
+package practicalOne;
 
 public class Name {
 

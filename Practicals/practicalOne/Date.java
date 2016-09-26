@@ -1,4 +1,4 @@
-package main;
+package practicalOne;
 
 import java.util.Arrays;
 import java.util.HashSet;

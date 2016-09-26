@@ -2,7 +2,7 @@ package tests;
 
 import java.util.ArrayList;
 
-import main.Name;
+import practicalOne.Name;
 
 public class NameTester {
 
