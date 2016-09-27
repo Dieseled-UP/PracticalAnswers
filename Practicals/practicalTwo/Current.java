@@ -4,21 +4,20 @@ import practicalOne.Address;
 import practicalOne.Date;
 import practicalOne.Name;
 
-public class Current {
+public class Current extends Account {
 
 	// We will use composition to access the address and date objects
 	private Name name;
 	private Address address;
-	private static int accountNumber = 1;
+	private int accountNumber;
 	private double balance;
 	private Date dateOpened;
-	
+
 	public Current() {
-		
 		this(null, null, 0, null);
-		accountNumber++;
+		createAccountNumber();
 	}
-	
+
 	/**
 	 * @param name
 	 * @param address
@@ -31,8 +30,7 @@ public class Current {
 		this.address = address;
 		this.balance = balance;
 		this.dateOpened = dateOpened;
-		
-		accountNumber++;
+		createAccountNumber();
 	}
 
 	/**
@@ -43,7 +41,8 @@ public class Current {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(Name name) {
 		this.name = name;
@@ -57,24 +56,24 @@ public class Current {
 	}
 
 	/**
-	 * @param address the address to set
+	 * @param address
+	 *            the address to set
 	 */
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	
+	@Override
+	public void createAccountNumber() {
+
+		this.accountNumber = Account.startingNumber++;
 	}
 
 	/**
 	 * @return the accountNumber
 	 */
-	public static int getAccountNumber() {
-		return accountNumber;
-	}
-
-	/**
-	 * @param accountNumber the accountNumber to set
-	 */
-	public static void setAccountNumber(int accountNumber) {
-		Current.accountNumber = accountNumber;
+	public int getAccountNumber() {
+		return this.accountNumber;
 	}
 
 	/**
@@ -85,7 +84,8 @@ public class Current {
 	}
 
 	/**
-	 * @param balance the balance to set
+	 * @param balance
+	 *            the balance to set
 	 */
 	public void setBalance(double balance) {
 		this.balance = balance;
@@ -99,19 +99,26 @@ public class Current {
 	}
 
 	/**
-	 * @param dateOpened the dateOpened to set
+	 * @param dateOpened
+	 *            the dateOpened to set
 	 */
 	public void setDateOpened(Date dateOpened) {
 		this.dateOpened = dateOpened;
 	}
 
-	/* (non-Javadoc)
+	public boolean equal(Current account) {
+		return account.name.equal(name) && account.address.equals(address) && account.dateOpened.equal(dateOpened);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Current [name=" + name + ", address=" + address + ", balance=" + balance + ", dateOpened=" + dateOpened
-				+ "]";
+		return "Current [name=" + name + ", address=" + address + ", accountNumber=" + this.accountNumber + ", balance="
+				+ balance + ", dateOpened=" + dateOpened + "]";
 	}
-	
+
 }

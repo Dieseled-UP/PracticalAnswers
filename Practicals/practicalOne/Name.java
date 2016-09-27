@@ -85,7 +85,7 @@ public class Name {
 	 */
 	@Override
 	public String toString() {
-		return "Name [title=" + title + ", firstName=" + firstName + ", surname=" + surname + "]";
+		return "Name [title=" + title + ", firstName=" + firstName + ", surname=" + surname + "]\n";
 	}
 	
 }
