@@ -10,7 +10,6 @@ public class Current extends Account {
 	private Name name;
 	private Address address;
 	private int accountNumber;
-	private double balance;
 	private Date dateOpened;
 
 	public Current() {
@@ -77,21 +76,6 @@ public class Current extends Account {
 	}
 
 	/**
-	 * @return the balance
-	 */
-	public double getBalance() {
-		return balance;
-	}
-
-	/**
-	 * @param balance
-	 *            the balance to set
-	 */
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
-
-	/**
 	 * @return the dateOpened
 	 */
 	public Date getDateOpened() {
@@ -118,7 +102,7 @@ public class Current extends Account {
 	@Override
 	public String toString() {
 		return "Current [name=" + name + ", address=" + address + ", accountNumber=" + this.accountNumber + ", balance="
-				+ balance + ", dateOpened=" + dateOpened + "]";
+				+ this.balance + ", dateOpened=" + dateOpened + "]";
 	}
 
 }

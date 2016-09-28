@@ -21,6 +21,8 @@ public class CurrentTester {
 		
 		System.out.println(currentOne.toString());
 		System.out.println(currentTwo.toString());
+		
+		System.out.println(currentTwo.getBalance());
 	}
 
 }

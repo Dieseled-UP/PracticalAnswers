@@ -11,14 +11,10 @@ public class Joint extends Account {
 	private Name nameTwo;
 	private Address addressOne;
 	private Address addressTwo;
-	private static int startNumbering = 1;
-	private int accountNumber;
-	private double balance;
 	private Date dateOpened;
 
 	public Joint() {
 		this(null, null, null, null, 0, null);
-		accountNumber = startNumbering++;
 	}
 
 	/**
@@ -36,8 +32,6 @@ public class Joint extends Account {
 		this.addressTwo = addressTwo;
 		this.balance = balance;
 		this.dateOpened = dateOpened;
-
-		accountNumber = startNumbering++;
 	}
 
 	/**
@@ -114,21 +108,6 @@ public class Joint extends Account {
 	}
 
 	/**
-	 * @return the balance
-	 */
-	public double getBalance() {
-		return balance;
-	}
-
-	/**
-	 * @param balance
-	 *            the balance to set
-	 */
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
-
-	/**
 	 * @return the dateOpened
 	 */
 	public Date getDateOpened() {
@@ -157,7 +136,7 @@ public class Joint extends Account {
 	@Override
 	public String toString() {
 		return "Joint [nameOne=" + nameOne + ", nameTwo=" + nameTwo + ", addressOne=" + addressOne + ", addressTwo="
-				+ addressTwo + ", accountNumber=" + accountNumber + ", balance=" + balance + ", dateOpened="
+				+ addressTwo + ", accountNumber=" + accountNumber + ", balance=" + this.balance + ", dateOpened="
 				+ dateOpened + "]";
 	}
 
