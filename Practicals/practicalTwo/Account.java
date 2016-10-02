@@ -7,7 +7,7 @@ public abstract class Account {
 	 * so even though every account these days must have an associated
 	 * name and address these variables are still associated with the
 	 * type of account.  One concrete variable that every account has is
-	 * an ACCOUNT NUMBER
+	 * an ACCOUNT NUMBER and another would be a balance.
 	 */
 	protected static int startingNumber = 1;
 	protected int accountNumber;
