@@ -11,9 +11,10 @@ public class Current extends Account {
 	private Address address;
 	private int accountNumber;
 	private Date dateOpened;
+	private double overdraft;
 
 	public Current() {
-		this(null, null, 0, null);
+		this(null, null, 0, 0, null);
 		createAccountNumber();
 	}
 
@@ -24,10 +25,11 @@ public class Current extends Account {
 	 * @param balance
 	 * @param dateOpened
 	 */
-	public Current(Name name, Address address, double balance, Date dateOpened) {
+	public Current(Name name, Address address, double balance, double overdraft, Date dateOpened) {
 		this.name = name;
 		this.address = address;
 		this.balance = balance;
+		this.overdraft = overdraft;
 		this.dateOpened = dateOpened;
 		createAccountNumber();
 	}
@@ -81,28 +83,32 @@ public class Current extends Account {
 	public Date getDateOpened() {
 		return dateOpened;
 	}
+	
+	/**
+	 * @return the overdraft
+	 */
+	public double getOverdraft() {
+		return overdraft;
+	}
 
 	/**
-	 * @param dateOpened
-	 *            the dateOpened to set
+	 * @param overdraft the overdraft to set
 	 */
-	public void setDateOpened(Date dateOpened) {
-		this.dateOpened = dateOpened;
+	public void setOverdraft(double overdraft) {
+		this.overdraft = overdraft;
 	}
 
 	public boolean equal(Current account) {
 		return account.name.equal(name) && account.address.equals(address) && account.dateOpened.equal(dateOpened);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Current [name=" + name + ", address=" + address + ", accountNumber=" + this.accountNumber + ", balance="
-				+ this.balance + ", dateOpened=" + dateOpened + "]";
+		return "Current [name=" + name + ", address=" + address + ", accountNumber=" + accountNumber + ", dateOpened="
+				+ dateOpened + ", balance=" + balance + ", overdraft=" + overdraft + "]";
 	}
-
+	
 }
