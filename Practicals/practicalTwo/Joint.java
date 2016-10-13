@@ -9,12 +9,11 @@ public class Joint extends Account {
 	// We will use composition to access the address and date objects
 	private Name nameOne;
 	private Name nameTwo;
-	private Address addressOne;
-	private Address addressTwo;
+	private Address address;
 	private Date dateOpened;
 
 	public Joint() {
-		this(null, null, null, null, 0, null);
+		this(null, null, null, 0, null);
 	}
 
 	/**
@@ -25,11 +24,10 @@ public class Joint extends Account {
 	 * @param balance
 	 * @param dateOpened
 	 */
-	public Joint(Name nameOne, Name nameTwo, Address addressOne, Address addressTwo, double balance, Date dateOpened) {
+	public Joint(Name nameOne, Name nameTwo, Address address, double balance, Date dateOpened) {
 		this.nameOne = nameOne;
 		this.nameTwo = nameTwo;
-		this.addressOne = addressOne;
-		this.addressTwo = addressTwo;
+		this.address = address;
 		this.balance = balance;
 		this.dateOpened = dateOpened;
 	}
@@ -38,6 +36,7 @@ public class Joint extends Account {
 	 * @return the nameOne
 	 */
 	public Name getNameOne() {
+
 		return nameOne;
 	}
 
@@ -46,6 +45,7 @@ public class Joint extends Account {
 	 *            the nameOne to set
 	 */
 	public void setNameOne(Name nameOne) {
+
 		this.nameOne = nameOne;
 	}
 
@@ -53,6 +53,7 @@ public class Joint extends Account {
 	 * @return the nameTwo
 	 */
 	public Name getNameTwo() {
+
 		return nameTwo;
 	}
 
@@ -61,43 +62,32 @@ public class Joint extends Account {
 	 *            the nameTwo to set
 	 */
 	public void setNameTwo(Name nameTwo) {
+
 		this.nameTwo = nameTwo;
 	}
 
 	/**
 	 * @return the addressOne
 	 */
-	public Address getAddressOne() {
-		return addressOne;
+	public Address getAddress() {
+
+		return address;
 	}
 
 	/**
 	 * @param addressOne
 	 *            the addressOne to set
 	 */
-	public void setAddressOne(Address addressOne) {
-		this.addressOne = addressOne;
-	}
+	public void setAddress(Address address) {
 
-	/**
-	 * @return the addressTwo
-	 */
-	public Address getAddressTwo() {
-		return addressTwo;
-	}
-
-	/**
-	 * @param addressTwo
-	 *            the addressTwo to set
-	 */
-	public void setAddressTwo(Address addressTwo) {
-		this.addressTwo = addressTwo;
+		this.address = address;
 	}
 
 	/**
 	 * @return the accountNumber
 	 */
 	public int getAccountNumber() {
+
 		return this.accountNumber;
 	}
 
@@ -107,10 +97,32 @@ public class Joint extends Account {
 		this.accountNumber = Account.startingNumber++;
 	}
 
+	@Override
+	public void deposit(double amount) {
+
+		balance += amount;
+	}
+
+	@Override
+	public double withdraw(double amount) {
+
+		if (balance <= 0) {
+
+			return 0;
+		} else if (amount > balance) {
+			return 0;
+		} else {
+
+			balance -= amount;
+			return amount;
+		}
+	}
+
 	/**
 	 * @return the dateOpened
 	 */
 	public Date getDateOpened() {
+
 		return dateOpened;
 	}
 
@@ -119,13 +131,13 @@ public class Joint extends Account {
 	 *            the dateOpened to set
 	 */
 	public void setDateOpened(Date dateOpened) {
+
 		this.dateOpened = dateOpened;
 	}
 
 	public boolean equal(Joint account) {
 
-		return account.nameOne.equal(nameOne) && account.nameTwo.equal(nameTwo) && account.addressOne.equals(addressOne)
-				&& account.addressTwo.equals(addressTwo) && account.dateOpened.equal(dateOpened);
+		return account.nameOne.equal(nameOne) && account.nameTwo.equal(nameTwo) && account.address.equals(address) && account.dateOpened.equal(dateOpened);
 	}
 
 	/*
@@ -135,9 +147,8 @@ public class Joint extends Account {
 	 */
 	@Override
 	public String toString() {
-		return "Joint [nameOne=" + nameOne + ", nameTwo=" + nameTwo + ", addressOne=" + addressOne + ", addressTwo="
-				+ addressTwo + ", accountNumber=" + accountNumber + ", balance=" + this.balance + ", dateOpened="
-				+ dateOpened + "]";
+
+		return "Joint [nameOne=" + nameOne + ", nameTwo=" + nameTwo + ", addressOne=" + address + ", accountNumber=" + accountNumber + ", balance=" + balance + ", dateOpened=" + dateOpened + "]";
 	}
 
 }

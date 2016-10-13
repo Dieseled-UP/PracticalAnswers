@@ -25,9 +25,9 @@ public abstract class Account {
 	/**
 	 * @param balance the balance to set
 	 */
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
+	public abstract void deposit(double amount);
+	
+	public abstract double withdraw(double amount);
 	
 	/**
 	 * Even though this is very basic and not persistent,
